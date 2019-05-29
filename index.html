@@ -1,0 +1,296 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Heroku / DigitalOcean</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/league.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3>Heroku / DigitalOcean</h3>
+				</section>
+				<section>
+					<h2>introduction</h2>
+					<p>My name is <b>Yaroslav Tobolich</b></p>
+					<p class="fragment fade-right"> I am Web Technologist. I work with Magento.</p>
+				</section>
+				<section>
+					<h2>Plan</h2>
+					<ul>
+						<li>What is heroku?</li>
+						<li>What is DigitalOcean?</li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						<h2>What is Heroku?</h2>
+						<ul>
+							<li>
+								Heroku is a cloud Platform-as-a-Service (PaaS) supporting several programming languages that is used as a web application deployment model.
+							</li>
+							<li>
+								Heroku, one of the first cloud platforms, has been in development since June 2007.
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h2>How Heroku Works?</h2>
+						<p>Heroku uses AWS servers and "Containers" in the background.</p>
+						<p>When you use Heroku, your hosting costs are wrapped into Heroku’s platform and pricing.</p>
+						<p>Because of this setup, scaling can become a bit pricey when your app grows.</p>
+						<p>They Abstract all of the Iaas logic and allow the user a management console /configuration file based solution.</p>
+					</section>
+					<section>
+						<h3> Supported Languages</h3>
+						<img src="./images/support.webp" height="300" alt="Gif">
+						<img src="./images/lang.png" alt="lang">
+					</section>
+					<section>
+						<h3>
+							Why Heroku?
+						</h3>
+						<ul>
+							<li>Cheap during development and testing (reasonable after that)</li>
+							<li>Quick and easy to get started</li>
+							<li>Scales really well</li>
+							<li>git based workflow</li>
+							<li>Release management and rollback</li>
+						</ul>
+					</section>
+					<section data-background-image="./images/cat.webp" data-background-size="contain">
+						<h2>LET'S</h2>
+						<h2>GET</h2>
+						<h2>STARTED</h2>
+					</section>
+					<section>
+						<ul>
+							<li>heroku create myapp</li>
+							<li>git push heroku master</li>
+							<li>That's it!</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Install Heroku</h3>
+						<div class="fragment">
+							<p>macOS</p>
+							<pre>
+								<code data-trim data-noescape>
+									brew install heroku/brew/heroku
+								</code>
+							</pre>
+						</div>
+
+						<div class="fragment">
+							<p>Ubuntu 16+</p>
+							<pre >
+								<code data-trim data-noescape>
+									sudo snap install heroku --classic
+								</code>
+							</pre>
+						</div>
+						<div class="fragment">
+							<p>Windows</p>
+							<p>Download the appropriate installer for your Windows in Heroku website</p>
+						</div>
+					</section>
+					<section>
+						<h3>First we need an app</h3>
+						<p>Let's clone this one from heroku tutorial and make deploy app</p>
+						<pre class="fragment">
+							<code data-trim data-noescape>
+								mkdir nodeapp
+								cd nodeapp
+								git clone https://github.com/heroku/node-js-getting-started.git .
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>
+							Next we need to create an app on Heroku
+						</h3>
+						<pre class="fragment">
+							<code data-trim data-noescape>
+								$ heroku login
+									Email: name@example.com
+									Password (typing will be hidden):
+									Authentication successful.
+								$ heroku create
+									Creating app... done, ⬢ morning-ravine-84069
+									https://morning-ravine-84069.herokuapp.com/
+									| https://git.heroku.com/morning-ravine-84069.git
+							</code>
+						</pre>
+					</section>
+					<section data-background-image="./images/dance.webp" data-background-size="contain">
+							<h2>
+								Now you're created first heroku app
+							</h2>
+					</section>
+					<section>
+						<pre>
+							<code data-trim data-noescape>
+								git push heroku master
+								Enumerating objects: 497, done.
+								Counting objects: 100% (497/497), done.
+								Delta compression using up to 8 threads
+								Compressing objects: 100% (372/372), done.
+								Writing objects: 100% (497/497), 231.55 KiB | 77.18 MiB/s, done.
+								Total 497 (delta 90), reused 497 (delta 90)
+								remote: Compressing source files... done.
+								remote: Building source:
+								remote:
+								remote: -----> Node.js app detected
+								remote: -----> Launching...
+								remote:        https://fast-headland-39451.herokuapp.com/ deployed to Heroku
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>
+							Now we can open our web-app with url, or by using this handy shortcut
+						</h3>
+						<pre>
+							<code data-trim data-noescape>
+								heroku open
+							</code>
+						</pre>
+						<p> My appliction <a target="_blank" href="https://fast-headland-39451.herokuapp.com/">link</a></p>
+					</section>
+					<section>
+						<h3>
+							Other Helpful Commands
+						</h3>
+						<pre>
+							<code  data-trim data-noescape>
+								  access          manage user access to apps
+								  addons          tools and services for developing, extending, and operating your app
+								  apps            manage apps on Heroku
+								  auth            check 2fa status
+								  buildpacks      scripts used to compile apps
+								  config          environment variables of apps
+								  git             manage local git repository for app
+								  maintenance     enable/disable access to app
+								  pipelines       groups of apps that share the same codebase
+								  plugins         list installed plugins
+								  releases        display the releases for an app
+								  reviewapps      disposable apps built on GitHub pull requests
+								  run             run a one-off process inside a Heroku dyno
+								  sessions        OAuth sessions
+								  status          status of the Heroku platform
+								  update          update the Heroku CLI
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>
+							Heroku Deployment Documentation
+						</h3>
+						<ul>
+							<li>https://devcenter.heroku.com/</li>
+							<li>https://devcenter.heroku.com/articles/getting-started-with-nodejs</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>What is DigitalOcean?</h2>
+						<ul>
+							<li>IaaS alternative to Amazon EC2</li>
+							<li>Only provide compute resources</li>
+							<li>No Windows developers allowed</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Why is DigitalOcean?</h2>
+						<ul>
+							<li>Improve the developer experience</li>
+							<li>Lower cost structure</li>
+							<li>Higher performance</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Getting Started</h3>
+						<p>First, navigate to digitalocean.com</p>
+						<img src="./images/start.png" alt="Navigate">
+					</section>
+					<section>
+						<h3>Next, sign in or make an account</h3>
+						<img src="./images/profile.png" alt="Profile">
+					</section>
+					<section>
+						<h3>Click Create Droplet</h3>
+						<img src="./images/create.png" alt="Create Droplet">
+					</section>
+					<section>
+						<h3>Choose Droplet node.js</h3>
+						<img src="./images/chose-node.png" alt="Choose Node">
+					</section>
+					<section>
+						<h3>Choose a plan</h3>
+						<img src="./images/plan.png" alt="Choose plan">
+					</section>
+					<section>
+						<h3>Add a ssh key</h3>
+						<img src="./images/ssh.png" alt="New ssh">
+					</section>
+					<section>
+						<h3>Click create! Wait for it to finish firing up your droplet</h3>
+						<img src="./images/droplet.png" alt="Droplet info">
+					</section>
+					<section>
+						<h3>Log in by opening a terminal, and running ssh </h3>
+						<img src="./images/terminal.png" alt="Terminal">
+					</section>
+					<section>
+						<h3>Do whatever you want</h3>
+						<p>I deploying magento 2 PWA.</p>
+					</section>
+					<section>
+						<h3>
+							Magento PWA
+						</h3>
+						<img src="./images/m2.png" height="350" alt="">
+						<p><a target="_blank" href="http://46.101.212.64/">Open Store Magento 2 PWA</a></p>
+					</section>
+				</section>
+				<section data-background-image="./images/done.webp" data-background-size="contain">
+					<h1>
+						Thank you for attention!
+					</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
